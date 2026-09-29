@@ -1,0 +1,121 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  color-scheme: dark;
+}
+
+* {
+  border-color: rgba(255, 255, 255, 0.08);
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  min-height: 100vh;
+  background:
+    radial-gradient(1100px 520px at 90% -10%, rgba(212, 255, 0, 0.07), transparent 55%),
+    radial-gradient(800px 480px at -10% 10%, rgba(16, 185, 129, 0.06), transparent 50%),
+    #07080b;
+  color: #f8f9fa;
+}
+
+::selection {
+  background: #d4ff00;
+  color: #07080b;
+}
+
+:focus-visible {
+  outline: 2px solid #d4ff00;
+  outline-offset: 3px;
+}
+
+::-webkit-scrollbar {
+  width: 10px;
+  height: 10px;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #2a2e38;
+}
+
+::-webkit-scrollbar-track {
+  background: #07080b;
+}
+
+.shell {
+  @apply mx-auto w-full max-w-[1440px] px-5 md:px-8;
+}
+
+.btn-lime {
+  @apply inline-flex items-center justify-center gap-2 bg-lime px-6 py-3 text-[11px] font-semibold uppercase tracking-[0.22em] text-obsidian transition hover:bg-white;
+}
+
+.btn-ghost {
+  @apply inline-flex items-center justify-center gap-2 border border-white/15 px-6 py-3 text-[11px] font-semibold uppercase tracking-[0.22em] text-bone transition hover:border-lime hover:text-lime;
+}
+
+.field {
+  @apply w-full border border-white/10 bg-white/[0.03] px-3 py-3 text-sm text-bone outline-none transition placeholder:text-white/30 focus:border-lime;
+}
+
+.eyebrow {
+  @apply font-mono text-[11px] uppercase tracking-[0.28em] text-lime;
+}
+
+.ticker-track {
+  animation: ticker 32s linear infinite;
+}
+
+.ticker:hover .ticker-track {
+  animation-play-state: paused;
+}
+
+@keyframes ticker {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-50%);
+  }
+}
+
+input[type="range"].dual {
+  pointer-events: none;
+  position: absolute;
+  left: 0;
+  top: 8px;
+  width: 100%;
+  height: 0;
+  appearance: none;
+  background: transparent;
+}
+
+input[type="range"].dual::-webkit-slider-thumb {
+  pointer-events: auto;
+  appearance: none;
+  height: 16px;
+  width: 16px;
+  background: #d4ff00;
+  cursor: pointer;
+}
+
+input[type="range"].dual::-moz-range-thumb {
+  pointer-events: auto;
+  height: 16px;
+  width: 16px;
+  border: 0;
+  border-radius: 0;
+  background: #d4ff00;
+  cursor: pointer;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .ticker-track,
+  .ticker-track * {
+    animation: none !important;
+  }
+}
