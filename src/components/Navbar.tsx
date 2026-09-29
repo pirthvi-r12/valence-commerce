@@ -3,6 +3,7 @@
 import { Globe, Heart, Menu, Search, ShoppingBag, User, X } from "lucide-react";
 import Link from "next/link";
 import { useEffect, useState } from "react";
+import { createPortal } from "react-dom";
 import { CURRENCY_CODES } from "@/lib/currency";
 import { useCommerce } from "@/context/CommerceProvider";
 
@@ -29,8 +30,17 @@ export function Navbar() {
     return () => window.removeEventListener("keydown", onKey);
   }, [setSearchOpen]);
 
+  useEffect(() => {
+    if (!open) return;
+    const prev = document.body.style.overflow;
+    document.body.style.overflow = "hidden";
+    return () => {
+      document.body.style.overflow = prev;
+    };
+  }, [open]);
+
   return (
-    <header className="border-b border-white/10 bg-[#07080B]/75 backdrop-blur-xl">
+    <header className="relative z-40 border-b border-white/10 bg-[#07080B]/75 backdrop-blur-xl">
       <div className="shell flex h-16 items-center justify-between gap-4">
         <div className="flex items-center gap-3">
           <button type="button" className="grid h-10 w-10 place-items-center border border-white/10 md:hidden" aria-label="Open menu" onClick={() => setOpen(true)}>
@@ -93,27 +103,41 @@ export function Navbar() {
           </button>
         </div>
       </div>
-      {open ? (
-        <div className="fixed inset-0 z-50 bg-obsidian md:hidden">
-          <div className="flex items-center justify-between border-b border-white/10 px-5 py-4">
-            <span className="font-display tracking-[0.18em]">VALENCE</span>
-            <button type="button" aria-label="Close menu" onClick={() => setOpen(false)}>
-              <X />
-            </button>
-          </div>
-          <div className="flex flex-col gap-6 px-6 py-10">
-            {LINKS.map((link) => (
-              <Link key={link.href} href={link.href} onClick={() => setOpen(false)} className="font-display text-4xl tracking-[-0.04em]">
-                {link.label}
-              </Link>
-            ))}
-            <Link href="/account" onClick={() => setOpen(false)} className="font-display text-4xl tracking-[-0.04em]">
-              Account
-            </Link>
-          </div>
-        </div>
-      ) : null}
+      <MobileMenu open={open} onClose={() => setOpen(false)} />
     </header>
+  );
+}
+
+function MobileMenu({ open, onClose }: { open: boolean; onClose: () => void }) {
+  const [mounted, setMounted] = useState(false);
+
+  useEffect(() => setMounted(true), []);
+
+  if (!mounted || !open) return null;
+
+  return createPortal(
+    <div className="fixed inset-0 z-[100] md:hidden" role="dialog" aria-modal="true" aria-label="Menu">
+      <button type="button" className="absolute inset-0 bg-obsidian/95 backdrop-blur-md" aria-label="Close menu" onClick={onClose} />
+      <div className="relative flex h-full flex-col bg-obsidian">
+        <div className="flex items-center justify-between border-b border-white/10 px-5 py-4">
+          <span className="font-display tracking-[0.18em]">VALENCE</span>
+          <button type="button" aria-label="Close menu" className="grid h-10 w-10 place-items-center border border-white/10" onClick={onClose}>
+            <X size={18} />
+          </button>
+        </div>
+        <nav className="flex flex-1 flex-col gap-6 overflow-y-auto overscroll-contain px-6 py-10">
+          {LINKS.map((link) => (
+            <Link key={link.href} href={link.href} onClick={onClose} className="font-display text-4xl tracking-[-0.04em] hover:text-lime">
+              {link.label}
+            </Link>
+          ))}
+          <Link href="/account" onClick={onClose} className="font-display text-4xl tracking-[-0.04em] hover:text-lime">
+            Account
+          </Link>
+        </nav>
+      </div>
+    </div>,
+    document.body,
   );
 }
 

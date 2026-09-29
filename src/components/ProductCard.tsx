@@ -56,14 +56,14 @@ export function ProductCard({ product }: { product: Product }) {
           <Heart size={16} className={wished ? "fill-lime text-lime" : "text-bone"} />
         </motion.button>
       </div>
-      <div className="mt-4 flex items-start justify-between gap-4">
-        <div>
+      <div className="mt-4 flex items-start justify-between gap-3">
+        <div className="min-w-0 flex-1">
           <p className="font-mono text-[10px] uppercase tracking-[0.2em] text-white/45">{product.category}</p>
-          <Link href={`/product/${product.slug}`} className="mt-1 block font-display text-xl tracking-[-0.03em] hover:text-lime">
+          <Link href={`/product/${product.slug}`} className="mt-1 block line-clamp-2 font-display text-lg leading-tight tracking-[-0.03em] hover:text-lime md:text-xl">
             {product.title}
           </Link>
         </div>
-        <div className="text-right font-mono text-sm">
+        <div className="shrink-0 text-right font-mono text-sm">
           {product.compareAtCents && product.compareAtCents > product.priceCents ? (
             <div className="text-white/35 line-through">{format(product.compareAtCents)}</div>
           ) : null}

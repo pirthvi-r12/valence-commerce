@@ -1,0 +1,324 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>VALENCE — Portfolio Case Study</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;700&family=DM+Sans:ital,opsz,wght@0,9..40,400;0,9..40,600;0,9..40,700;1,9..40,400&family=Instrument+Serif:ital@0;1&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="styles.css" />
+  <link rel="stylesheet" href="valence-theme.css" />
+</head>
+<body>
+  <main class="deck">
+
+    <section class="slide" id="s1">
+      <header class="topbar">
+        <div class="brand">
+          <img src="assets/mark.svg" alt="" class="mark" />
+          <div>
+            <p class="brand-name">VALENCE</p>
+            <p class="brand-label">Autonomous Luxury Commerce · SS26 Atelier</p>
+          </div>
+        </div>
+      </header>
+      <div class="stage">
+        <div class="copy">
+          <h1>Wear the <em>Uniform.</em></h1>
+          <p class="lede">Technical uniform for weather and rooms. VALENCE // Autonomous Luxury Commerce — 54 SKUs across 9 categories, live on valence-commerce.vercel.app with TiDB Cloud (valance) and GitHub pirthvi-r12/valence-commerce.</p>
+          <div class="saas-anim" aria-hidden="true">
+            <div class="saas-float saas-float-a">
+              <p class="saas-float-k">Catalog</p>
+              <p class="saas-float-v">54 SKUs</p>
+            </div>
+            <div class="saas-float saas-float-b">
+              <p class="saas-float-k">Drop</p>
+              <p class="saas-float-v">SS26 · Core</p>
+            </div>
+            <div class="saas-panel">
+              <div class="saas-chrome">
+                <span></span><span></span><span></span>
+                <p>COMMERCE CORE v1.0</p>
+              </div>
+              <div class="saas-body">
+                <aside class="saas-side">
+                  <i class="on">Shop</i><i>Cart</i><i>Admin</i><i>AI</i>
+                </aside>
+                <div class="saas-main">
+                  <div class="saas-stats">
+                    <div><small>Products</small><b>54</b></div>
+                    <div><small>Categories</small><b>9</b></div>
+                    <div><small>Feed</small><b>TiDB</b></div>
+                  </div>
+                  <div class="saas-progress">
+                    <div class="saas-progress-head"><span>OBSIDIAN SHELL PARKA</span><strong>$890</strong></div>
+                    <div class="saas-progress-track"><i></i></div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="links">
+            <a href="https://valence-commerce.vercel.app">Live storefront</a>
+            <a href="https://github.com/pirthvi-r12/valence-commerce">GitHub</a>
+          </div>
+        </div>
+        <div class="devices devices-hero">
+          <figure class="imac">
+            <div class="imac-bezel">
+              <span class="imac-camera"></span>
+              <div class="screen">
+                <img src="assets/02-shop-desktop.png" alt="VALENCE shop — live production UI" />
+              </div>
+            </div>
+            <div class="imac-chin"><span class="imac-logo"></span></div>
+            <div class="imac-neck"></div>
+            <div class="imac-foot"></div>
+          </figure>
+          <figure class="iphone iphone-16">
+            <span class="iphone-btn action"></span>
+            <span class="iphone-btn vol-up"></span>
+            <span class="iphone-btn vol-down"></span>
+            <span class="iphone-btn power"></span>
+            <span class="iphone-btn camera"></span>
+            <div class="iphone-bezel">
+              <span class="island"></span>
+              <div class="screen">
+                <img src="assets/04-shop-mobile.png" alt="VALENCE shop on mobile" />
+              </div>
+            </div>
+          </figure>
+        </div>
+      </div>
+    </section>
+
+    <section class="slide" id="s2">
+      <header class="topbar">
+        <div class="brand">
+          <img src="assets/mark.svg" alt="" class="mark" />
+          <div>
+            <p class="brand-name">VALENCE</p>
+            <p class="brand-label">Autonomous Luxury Commerce · SS26 Atelier</p>
+          </div>
+        </div>
+      </header>
+      <div class="stage stage-split">
+        <div class="copy">
+          <p class="kicker">01 — Motive</p>
+          <h2>Why the platform exists</h2>
+          <p class="lede">Luxury DTC demos often stop at a landing page. Carts reset, filters return zero rows, and images 404. VALENCE ships the full loop — catalog, PDP, checkout, account, admin seed — so a buyer can click through a credible atelier in one session.</p>
+          <div class="cards three">
+            <article><h3>54-SKU floor</h3><p>Obsidian Shell Parka ($890), Voltage Knit Crew, Monolith Overcoat ($1,180) — p1–p54 in catalog.ts + catalog-floor.ts, 9 categories, XS–XL variants.</p></article>
+            <article><h3>Commerce state</h3><p>Cart and wishlist in CommerceProvider with local persistence; orders and reviews persist to TiDB when configured.</p></article>
+            <article><h3>One ops stack</h3><p>Admin login, product visibility, order table, and POST /api/admin/seed — fed by sql/valance.sql on TiDB Cloud.</p></article>
+          </div>
+        </div>
+        <figure class="laptop">
+          <div class="laptop-lid">
+            <span class="laptop-camera"></span>
+            <div class="screen">
+              <img src="assets/03-pdp-desktop.png" alt="Obsidian Shell Parka product page" />
+            </div>
+          </div>
+          <div class="laptop-base"><span class="laptop-notch"></span></div>
+        </figure>
+      </div>
+    </section>
+
+    <section class="slide" id="s3">
+      <header class="topbar">
+        <div class="brand">
+          <img src="assets/mark.svg" alt="" class="mark" />
+          <div>
+            <p class="brand-name">VALENCE</p>
+            <p class="brand-label">Autonomous Luxury Commerce · SS26 Atelier</p>
+          </div>
+        </div>
+      </header>
+      <div class="stage stage-split">
+        <div class="copy">
+          <p class="kicker">02 — Why it was built</p>
+          <h2>Market friction vs product response</h2>
+          <div class="versus">
+            <div>
+              <p class="vs-label">Friction</p>
+              <ul>
+                <li>Missing max price param caps the shop at $0–$10 and looks “broken”</li>
+                <li>Dead CDN photos collapse every card into the same error fallback</li>
+                <li>Demo stores with no database lose orders on refresh</li>
+              </ul>
+            </div>
+            <div>
+              <p class="vs-label">Response</p>
+              <ul>
+                <li>ShopExperience parses min/max only when present; default band $0–$2000</li>
+                <li>npm run verify:images audits catalog URLs before ship</li>
+                <li>DB_* + DB_SSL to TiDB; /api/health reports connected product count</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+        <figure class="iphone iphone-16 iphone-solo">
+          <span class="iphone-btn action"></span>
+          <span class="iphone-btn vol-up"></span>
+          <span class="iphone-btn vol-down"></span>
+          <span class="iphone-btn power"></span>
+          <span class="iphone-btn camera"></span>
+          <div class="iphone-bezel">
+            <span class="island"></span>
+            <div class="screen">
+              <img src="assets/09-checkout-mobile.png" alt="VALENCE checkout flow" />
+            </div>
+          </div>
+        </figure>
+      </div>
+    </section>
+
+    <section class="slide" id="s4">
+      <header class="topbar">
+        <div class="brand">
+          <img src="assets/mark.svg" alt="" class="mark" />
+          <div>
+            <p class="brand-name">VALENCE</p>
+            <p class="brand-label">Autonomous Luxury Commerce · SS26 Atelier</p>
+          </div>
+        </div>
+      </header>
+      <div class="stage stage-split">
+        <div class="copy">
+          <p class="kicker">03 — Business value</p>
+          <h2>What a desk can do in the room</h2>
+          <div class="cards four">
+            <article><h3>Pitch in one motion</h3><p>Landing marquee, featured drops, and shop deep-links that preserve filter state for live walkthroughs.</p></article>
+            <article><h3>Convert</h3><p>Cart drawer, checkout with address + coupon validation, invoice PDF hook, and order confirmation.</p></article>
+            <article><h3>Retain</h3><p>Account center, order history, wishlist share codes, and PDP reviews with fit advice.</p></article>
+            <article><h3>Operate</h3><p>Admin command center to seed TiDB, toggle visibility, and read the order pipeline.</p></article>
+          </div>
+        </div>
+        <figure class="imac imac-sm">
+          <div class="imac-bezel">
+            <span class="imac-camera"></span>
+            <div class="screen">
+              <img src="assets/01-landing-desktop.png" alt="VALENCE landing hero" />
+            </div>
+          </div>
+          <div class="imac-chin"><span class="imac-logo"></span></div>
+          <div class="imac-neck"></div>
+          <div class="imac-foot"></div>
+        </figure>
+      </div>
+    </section>
+
+    <section class="slide" id="s5">
+      <header class="topbar">
+        <div class="brand">
+          <img src="assets/mark.svg" alt="" class="mark" />
+          <div>
+            <p class="brand-name">VALENCE</p>
+            <p class="brand-label">Autonomous Luxury Commerce · SS26 Atelier</p>
+          </div>
+        </div>
+      </header>
+      <div class="stage stage-split">
+        <div class="copy">
+          <p class="kicker">04 — Operator journey</p>
+          <h2>Land → browse → buy → return</h2>
+          <ol class="journey">
+            <li><strong>Discover.</strong> Cinematic landing with featured SKUs and flash drop banner.</li>
+            <li><strong>Open the shop.</strong> Category chips, price slider, search modal across titles and colors.</li>
+            <li><strong>Configure PDP.</strong> Size/color variants, gallery, fit reviews, AI stylist suggestions.</li>
+            <li><strong>Checkout.</strong> Stripe-ready flow, coupons, shipping tiers, orders to TiDB.</li>
+            <li><strong>Export.</strong> Account order detail and admin seed without leaving the brand.</li>
+          </ol>
+        </div>
+        <figure class="iphone iphone-16 iphone-solo">
+          <span class="iphone-btn action"></span>
+          <span class="iphone-btn vol-up"></span>
+          <span class="iphone-btn vol-down"></span>
+          <span class="iphone-btn power"></span>
+          <span class="iphone-btn camera"></span>
+          <div class="iphone-bezel">
+            <span class="island"></span>
+            <div class="screen">
+              <img src="assets/05-pdp-mobile.png" alt="Voltage Knit Crew on mobile" />
+            </div>
+          </div>
+        </figure>
+      </div>
+    </section>
+
+    <section class="slide" id="s6">
+      <header class="topbar">
+        <div class="brand">
+          <img src="assets/mark.svg" alt="" class="mark" />
+          <div>
+            <p class="brand-name">VALENCE</p>
+            <p class="brand-label">Autonomous Luxury Commerce · SS26 Atelier</p>
+          </div>
+        </div>
+      </header>
+      <div class="stage stage-split">
+        <div class="copy">
+          <p class="kicker">05 — Fusion intelligence</p>
+          <h2>Where the picture locks</h2>
+          <p class="lede tight">Catalog lives in TypeScript for SSG, hydrates CommerceProvider, and syncs orders/reviews to TiDB. Image URLs are audited so the shop never regresses to broken thumbnails.</p>
+          <div class="cards four mini">
+            <article><h3>Catalog p1–p54</h3><p>catalog.ts + catalog-floor.ts with mediaUrl and per-product ProductImage fallbacks.</p></article>
+            <article><h3>Security</h3><p>Middleware on /admin, JSON body limits, security headers, secure admin cookie in production.</p></article>
+            <article><h3>Payments</h3><p>Stripe PaymentIntent route with publishable key on checkout.</p></article>
+            <article><h3>Health</h3><p>/api/health reports connected mode and live product count from valance.</p></article>
+          </div>
+        </div>
+        <figure class="imac imac-sm">
+          <div class="imac-bezel">
+            <span class="imac-camera"></span>
+            <div class="screen">
+              <img src="assets/07-admin-desktop.png" alt="VALENCE admin login" />
+            </div>
+          </div>
+          <div class="imac-chin"><span class="imac-logo"></span></div>
+          <div class="imac-neck"></div>
+          <div class="imac-foot"></div>
+        </figure>
+      </div>
+    </section>
+
+    <section class="slide" id="s7">
+      <header class="topbar">
+        <div class="brand">
+          <img src="assets/mark.svg" alt="" class="mark" />
+          <div>
+            <p class="brand-name">VALENCE</p>
+            <p class="brand-label">Autonomous Luxury Commerce · SS26 Atelier</p>
+          </div>
+        </div>
+      </header>
+      <div class="stage stage-split">
+        <div class="copy">
+          <p class="kicker">06 — Full picture</p>
+          <h2>What VALENCE is — and why we built it</h2>
+          <dl class="facts">
+            <div><dt>What it does</dt><dd>A production-grade luxury commerce demo: shop, PDP, cart, checkout, account, wishlist, admin, and optional AI stylist. Data layer supports in-memory fallback or TiDB/MySQL via sql/valance.sql.</dd></div>
+            <div><dt>Why we made it</dt><dd>To prove autonomous commerce UX — matte brand, real filters, real images, database-backed orders — in one Next.js codebase deployable in minutes.</dd></div>
+            <div><dt>Who it is for</dt><dd>Portfolio showcases, agency pitches, and engineers learning App Router + TiDB + Vercel production patterns.</dd></div>
+            <div><dt>What shipped</dt><dd>Next.js 14.2 · React 18 · Tailwind · Framer Motion · mysql2/pg · Stripe · sql/valance.sql · TiDB Cloud database valance · Vercel production · GitHub pirthvi-r12/valence-commerce · Demo users admin@valence.studio / avery@valence.studio.</dd></div>
+          </dl>
+        </div>
+        <figure class="imac imac-sm">
+          <div class="imac-bezel">
+            <span class="imac-camera"></span>
+            <div class="screen">
+              <img src="assets/06-checkout-desktop.png" alt="VALENCE checkout desktop" />
+            </div>
+          </div>
+          <div class="imac-chin"><span class="imac-logo"></span></div>
+          <div class="imac-neck"></div>
+          <div class="imac-foot"></div>
+        </figure>
+      </div>
+    </section>
+
+  </main>
+</body>
+</html>
