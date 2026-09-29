@@ -125,7 +125,7 @@ function MobileMenu({ open, onClose }: { open: boolean; onClose: () => void }) {
             <X size={18} />
           </button>
         </div>
-        <nav className="flex flex-1 flex-col gap-6 overflow-y-auto overscroll-contain px-6 py-10">
+        <nav className="scrollbar-none flex flex-1 flex-col gap-6 overflow-y-auto overscroll-contain px-6 py-10">
           {LINKS.map((link) => (
             <Link key={link.href} href={link.href} onClick={onClose} className="font-display text-4xl tracking-[-0.04em] hover:text-lime">
               {link.label}

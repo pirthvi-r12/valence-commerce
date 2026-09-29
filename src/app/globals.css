@@ -18,6 +18,7 @@ html {
 }
 
 body {
+  overflow-x: hidden;
   min-height: 100vh;
   background:
     radial-gradient(1100px 520px at 90% -10%, rgba(212, 255, 0, 0.07), transparent 55%),
@@ -56,6 +57,50 @@ body {
 
 ::-webkit-scrollbar-corner {
   background: transparent;
+}
+
+/* Mobile: hide native overlay scrollbars (thick grey bar); scrolling still works */
+@media (max-width: 767px) {
+  html {
+    scrollbar-gutter: auto;
+    scrollbar-width: none;
+  }
+
+  body {
+    -ms-overflow-style: none;
+  }
+
+  html::-webkit-scrollbar,
+  body::-webkit-scrollbar {
+    display: none;
+    width: 0;
+    height: 0;
+  }
+
+  *,
+  *::-webkit-scrollbar {
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+  }
+
+  *::-webkit-scrollbar {
+    display: none;
+    width: 0;
+    height: 0;
+  }
+}
+
+@layer utilities {
+  .scrollbar-none {
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+  }
+
+  .scrollbar-none::-webkit-scrollbar {
+    display: none;
+    width: 0;
+    height: 0;
+  }
 }
 
 .shell {

@@ -86,7 +86,7 @@ export function CartDrawer() {
                 <div className="h-full bg-lime" style={{ width: `${progress}%` }} />
               </div>
             </div>
-            <div className="flex-1 space-y-5 overflow-auto px-5 py-5">
+            <div className="scrollbar-none flex-1 space-y-5 overflow-auto px-5 py-5">
               {detailedCart.length === 0 ? (
                 <div className="py-10">
                   <p className="text-white/60">The bag is clear. The drop is not.</p>

@@ -60,7 +60,7 @@ export function AiStylistWidget() {
   }
 
   return (
-    <div className={`fixed right-5 z-[55] transition-all ${pdpDock ? "bottom-24" : "bottom-5"} ${cartOpen || searchOpen ? "pointer-events-none opacity-0" : ""}`}>
+    <div className={`fixed z-[55] transition-all ${pdpDock ? "bottom-24" : "bottom-5"} right-4 sm:right-5 ${cartOpen || searchOpen ? "pointer-events-none opacity-0" : ""}`}>
       {open ? (
         <div className="mb-3 flex h-[540px] w-[min(100vw-2.5rem,380px)] flex-col border border-white/10 bg-[#0C0E13] shadow-lift">
           <div className="flex items-center justify-between border-b border-white/10 px-4 py-3">
@@ -72,7 +72,7 @@ export function AiStylistWidget() {
               <X size={16} />
             </button>
           </div>
-          <div className="flex-1 space-y-3 overflow-auto px-4 py-4">
+          <div className="scrollbar-none flex-1 space-y-3 overflow-auto px-4 py-4">
             {messages.map((message, index) => (
               <div key={`${message.role}-${index}`} className={message.role === "user" ? "ml-8 bg-white/5 px-3 py-2 text-sm" : "mr-6 text-sm text-white/80"}>
                 <p>{message.text}</p>
@@ -102,7 +102,7 @@ export function AiStylistWidget() {
             ))}
             {busy ? <p className="font-mono text-[10px] uppercase tracking-[0.16em] text-lime">Editing the rack…</p> : null}
           </div>
-          <div className="flex gap-2 overflow-auto border-t border-white/10 px-3 py-2">
+          <div className="scrollbar-none flex gap-2 overflow-x-auto border-t border-white/10 px-3 py-2">
             {PROMPTS.map((prompt) => (
               <button key={prompt} type="button" className="shrink-0 border border-white/10 px-2 py-1 font-mono text-[10px] uppercase tracking-[0.12em] text-white/60 hover:border-lime hover:text-lime" onClick={() => ask(prompt)}>
                 {prompt}

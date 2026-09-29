@@ -3,7 +3,8 @@
 import { SlidersHorizontal, X } from "lucide-react";
 import Link from "next/link";
 import { useRouter, useSearchParams } from "next/navigation";
-import { useMemo, useState, type ReactNode } from "react";
+import { useEffect, useMemo, useState, type ReactNode } from "react";
+import { createPortal } from "react-dom";
 import { ProductCard } from "@/components/ProductCard";
 import { useCommerce } from "@/context/CommerceProvider";
 import { searchProducts } from "@/lib/search";
@@ -21,6 +22,18 @@ export function ShopExperience() {
   const router = useRouter();
   const { catalog } = useCommerce();
   const [mobileFilters, setMobileFilters] = useState(false);
+  const [mounted, setMounted] = useState(false);
+
+  useEffect(() => setMounted(true), []);
+
+  useEffect(() => {
+    if (!mobileFilters) return;
+    const prev = document.body.style.overflow;
+    document.body.style.overflow = "hidden";
+    return () => {
+      document.body.style.overflow = prev;
+    };
+  }, [mobileFilters]);
 
   const category = params.get("category") ?? "All";
   const sort = params.get("sort") ?? "featured";
@@ -201,17 +214,20 @@ export function ShopExperience() {
           </div>
         )}
       </div>
-      {mobileFilters ? (
-        <div className="fixed inset-0 z-50 bg-obsidian p-5 md:hidden">
-          <div className="mb-6 flex items-center justify-between">
-            <p className="font-display text-3xl">Filters</p>
-            <button type="button" aria-label="Close filters" onClick={() => setMobileFilters(false)}>
-              <X />
-            </button>
-          </div>
-          {filters}
-        </div>
-      ) : null}
+      {mounted && mobileFilters
+        ? createPortal(
+            <div className="fixed inset-0 z-[100] flex flex-col bg-obsidian md:hidden" role="dialog" aria-modal="true" aria-label="Filters">
+              <div className="flex shrink-0 items-center justify-between border-b border-white/10 px-5 py-4">
+                <p className="font-display text-3xl">Filters</p>
+                <button type="button" aria-label="Close filters" className="grid h-10 w-10 place-items-center border border-white/10" onClick={() => setMobileFilters(false)}>
+                  <X size={18} />
+                </button>
+              </div>
+              <div className="scrollbar-none flex-1 overflow-y-auto overscroll-contain px-5 py-6">{filters}</div>
+            </div>,
+            document.body,
+          )
+        : null}
     </div>
   );
 }

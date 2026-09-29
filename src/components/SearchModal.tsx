@@ -46,7 +46,7 @@ export function SearchModal() {
               <X size={16} />
             </button>
           </div>
-          <ul className="max-h-[60vh] overflow-auto">
+          <ul className="scrollbar-none max-h-[60vh] overflow-auto overscroll-contain">
             {results.length === 0 ? (
               <li className="px-5 py-8 text-sm text-white/50">No pieces match that search.</li>
             ) : (
